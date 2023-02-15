@@ -24,6 +24,7 @@ const contactsSlice = createSlice({
             state.isLoading = false
             state.error = payload
         },
+
         // addContact
         [addContact.pending]: (state, { payload }) => {
             state.isLoading = true
@@ -37,6 +38,7 @@ const contactsSlice = createSlice({
             state.isLoading = false
             state.error = payload
         },
+        
         // deleteContact
         [deleteContact.pending]: (state, { payload }) => {
             state.isLoading = true

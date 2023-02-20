@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contacts/contactsOperations'
 import { nanoid } from 'nanoid';
-import '../Phonebook.css'
 
 export default function ContactForm() {
     const [name, setName] = useState('')
@@ -14,7 +13,7 @@ export default function ContactForm() {
         e.preventDefault()
         const newItem = {
             name,
-            phone: number,
+            number: number,
             id: nanoid()
         }
 

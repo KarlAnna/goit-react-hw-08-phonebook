@@ -12,7 +12,7 @@ const contactsSlice = createSlice({
     initialState: contactsInitialState,
     extraReducers: {
         // fetchContacts
-        [fetchContacts.pending]: (state, { payload }) => {
+        [fetchContacts.pending]: (state) => {
             state.isLoading = true
             state.error = null
         },
@@ -26,7 +26,7 @@ const contactsSlice = createSlice({
         },
 
         // addContact
-        [addContact.pending]: (state, { payload }) => {
+        [addContact.pending]: (state) => {
             state.isLoading = true
             state.error = null
         },
@@ -40,7 +40,7 @@ const contactsSlice = createSlice({
         },
         
         // deleteContact
-        [deleteContact.pending]: (state, { payload }) => {
+        [deleteContact.pending]: (state) => {
             state.isLoading = true
             state.error = null
         },

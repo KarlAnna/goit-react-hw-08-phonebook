@@ -5,11 +5,11 @@ import { deleteContact } from 'redux/contacts/contactsOperations';
 const ContactItem = ({ item }) => {
     
     const dispatch = useDispatch()
-    const { name, phone, id } = item
+    const { name, number, id } = item
     
     return (
         <>
-          <p>{name}: {phone}</p>
+          <p>{name}: {number}</p>
           <button type="button" onClick={()=> dispatch(deleteContact(id))}>Delete</button>
         </>
     )

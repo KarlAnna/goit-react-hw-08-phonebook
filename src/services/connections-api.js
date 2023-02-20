@@ -5,22 +5,22 @@ axios.defaults.baseURL = 'https://connections-api.herokuapp.com'
 // AUTH
 
 export async function register(user) {
-    const data = await axios.post('/users/signup', user)
+    const { data } = await axios.post('/users/signup', user)
     return data
 }
 
-export async function login() {
-    const data = await axios.post('/users/login')
+export async function logIn(user) {
+    const { data } = await axios.post('/users/login', user)
     return data
 }
 
-export async function logout() {
-    const data = await axios.post('/users/logout')
+export async function logOut() {
+    const { data } = await axios.post('/users/logout')
     return data
 }
 
-export async function current() {
-    const data = await axios.get('/users/current')
+export async function fetchCurrentUser() {
+    const { data } = await axios.get('/users/current')
     return data
 }
 

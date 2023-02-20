@@ -1,8 +1,10 @@
+import { LoginForm } from "components/LoginForm/LoginForm"
+
 const Login = () => {
     return (
-        <div className="container">
-            Login
-        </div>
+        <>
+            <LoginForm />
+        </>
     )
 }
 

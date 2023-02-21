@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsOperations';
+import { Typography, Button } from '@mui/material';
 
 const ContactItem = ({ item }) => {
     
@@ -9,8 +10,8 @@ const ContactItem = ({ item }) => {
     
     return (
         <>
-          <p>{name}: {number}</p>
-          <button type="button" onClick={()=> dispatch(deleteContact(id))}>Delete</button>
+          <Typography variant="body1">{name}: {number}</Typography>
+          <Button variant="outlined" sx={{height:'4vh'}} type="button" onClick={()=> dispatch(deleteContact(id))}>Delete</Button>
         </>
     )
 }

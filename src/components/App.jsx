@@ -24,8 +24,7 @@ export default function App() {
         <Route path="login" element={<Login />} />
         <Route path="contacts" element={<Contacts />} />
         <Route
-          index
-          element={
+          index element={
             <Typography component="h1" variant="h3" color={'secondary'} sx={{ padding: '2rem' }}>
               Phonebook
             </Typography>

@@ -1,17 +1,18 @@
 import ContactForm from "components/ContactForm/ContactForm"
 import Filter from "components/Filter/Filter"
 import ContactList from "components/ContactList/ContactList"
+import { Box, Typography } from "@mui/material"
 
 const Contacts = () => {
     return (
-        <div className="container">
-            <h1>Phonebook</h1>
+        <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
+            <Typography sx={{padding:'1rem 0'}} variant="h5">Phonebook</Typography>
             <ContactForm />
-
-            <h2>Contacts</h2>
+            
+            <Typography sx={{padding:'1rem 0'}} variant="h5">Contacts</Typography>
             <Filter />
             <ContactList />
-        </div>
+        </Box>
     )
 }
 

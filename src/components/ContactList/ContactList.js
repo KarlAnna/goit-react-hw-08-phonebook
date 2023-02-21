@@ -4,8 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectContacts, selectFilterValue } from 'redux/selectors';
 import { fetchContacts } from '../../redux/contacts/contactsOperations'
 import ContactItem from "../ContactItem/ContactItem"
+import { Box, List, ListItem } from '@mui/material';
 
 const ContactList = () => {
+
     const { items, isLoading } = useSelector(selectContacts)
     const filter = useSelector(selectFilterValue)
     const dispatch = useDispatch()
@@ -24,15 +26,15 @@ const ContactList = () => {
     
     return (
         <>
-            {isLoading && <div>Loading ...</div>}
+            {isLoading && <Box>Loading ...</Box>}
             {getVisibleContacts().length > 0 && (
-                <ul>
+                <List>
                     {getVisibleContacts().map((item) =>
-                        <li key={item.id}>
+                        <ListItem key={item.id} sx={{display:'flex', gap:'3vw'}}>
                             <ContactItem item={item} />
-                        </li>
+                        </ListItem>
                     )}
-                </ul>
+                </List>
             )}
         </>
     )

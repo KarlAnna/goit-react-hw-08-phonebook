@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { updateFilter } from 'redux/filterSlice';
+import { Typography, OutlinedInput } from '@mui/material';
 
 const Filter = ({ filter }) => {
 
@@ -13,8 +14,9 @@ const Filter = ({ filter }) => {
 
     return (
         <>
-            <p>Find contacts by name</p>
-            <input type="text" name="filter" value={filter} onChange={changeFilter} />
+            <Typography>Find contacts by name</Typography>
+            <OutlinedInput type="text" name="filter" value={filter} onChange={changeFilter}
+                sx={{height:'1.5rem'}} />
         </>
     )
 }

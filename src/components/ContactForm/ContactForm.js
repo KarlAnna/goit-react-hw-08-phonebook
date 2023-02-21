@@ -1,10 +1,11 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contacts/contactsOperations'
 import { nanoid } from 'nanoid';
+import { Box, TextField, Button } from '@mui/material';
 
 export default function ContactForm() {
+
     const [name, setName] = useState('')
     const [number, setNumber] = useState('')
     const dispatch = useDispatch()
@@ -38,9 +39,10 @@ export default function ContactForm() {
     }
 
     return (
-        <form onSubmit={formSubmitHandler}>
-            <label htmlFor="name">Name</label>
-            <input
+        <Box component='form' onSubmit={formSubmitHandler} sx={{display:'flex', flexWrap:'wrap', gap:'2rem', alignItems:'center', justifyContent:'center', paddingBottom:'1rem'}}>
+            <TextField
+                label="Name"
+                variant="filled" 
                 onChange={handleChange}
                 value={name}
                 type="text"
@@ -49,8 +51,9 @@ export default function ContactForm() {
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
             />
-            <label htmlFor="number">Number</label>
-            <input
+            <TextField
+                label="Number"
+                variant="filled" 
                 onChange={handleChange}
                 value={number}
                 type="tel"
@@ -59,12 +62,8 @@ export default function ContactForm() {
                 title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                 required
             />
-            <button type="submit">Add contact</button>
-        </form>
+            <Button type="submit" variant="contained" sx={{height:'5vh', lineHeight:'1.2'}}>Add contact</Button>
+        </Box>
     );
         
 }
-
-ContactForm.propTypes = {
-        onSubmit: PropTypes.func,
-    }

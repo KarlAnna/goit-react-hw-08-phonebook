@@ -5,5 +5,5 @@ export const selectContacts = state => state.contacts
 export const selectFilterValue = state => state.filter
 
 // USER
-export const selectUser = state => state.auth.user
+export const selectUserName = state => state.auth.user.name
 export const selectIsLoggedIn = state => state.auth.isLoggedIn

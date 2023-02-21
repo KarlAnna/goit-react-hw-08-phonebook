@@ -13,7 +13,7 @@ export const AppBar = () => {
     return (
         <>
             <Box sx={{display:'flex', alignItems:'baseline', justifyContent:'space-around' , padding:'0 2vw', backgroundColor:'#25a5be'}}>
-                <Navigation isLoggedIn={isLoggedIn} />
+                <Navigation />
                 {isLoggedIn && <UserMenu />}
             </Box>
             <Container sx={{display:'flex', justifyContent:'center'}}>

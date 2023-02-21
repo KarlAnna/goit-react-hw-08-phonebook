@@ -56,10 +56,10 @@ export const fetchCurrentUser = createAsyncThunk(
     async (_, { rejectWithValue, getState }) => {
         const { auth: { token } } = getState()
         if (token === null) {
-            return
+            return rejectWithValue('Unable to fetch user')
         }
-        setAuthHeader(token)
         try {
+            setAuthHeader(token)
             const data = await connectapi.fetchCurrentUser()
             return data
         } catch (error) {

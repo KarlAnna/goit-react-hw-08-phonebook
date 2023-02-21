@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import { NavLink } from "react-router-dom";
+import { useSelector } from 'react-redux';
 import styled from "styled-components";
 import { Toolbar, List, ListItem } from "@mui/material"
+import { selectIsLoggedIn } from "redux/selectors";
 
 const StyledNavLink = styled(NavLink)`
     position: relative;
@@ -29,7 +31,9 @@ const StyledNavLink = styled(NavLink)`
     }
 `
 
-export const Navigation = ({ isLoggedIn }) => {
+export const Navigation = () => {
+    const isLoggedIn = useSelector(selectIsLoggedIn)
+
     return (
         <Toolbar component='nav' >
             <List sx={{display:'flex', flexDirection:'row', gap:'2rem'}}>

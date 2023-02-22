@@ -1,10 +1,9 @@
-import React, { lazy, useEffect, Suspense } from 'react';
+import React, { lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { useDispatch } from 'react-redux';
 import { fetchCurrentUser } from 'redux/auth/authOperations';
-import { Typography } from '@mui/material';
 import { AppBar } from './AppBar/AppBar';
 const Contacts = lazy(() => import('../pages/Contacts'));
 const Login = lazy(() => import('../pages/Login'));

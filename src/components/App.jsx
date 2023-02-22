@@ -1,5 +1,7 @@
-import React, { lazy, useEffect } from 'react';
+import React, { lazy, useEffect, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
 import { useDispatch } from 'react-redux';
 import { fetchCurrentUser } from 'redux/auth/authOperations';
 import { Typography } from '@mui/material';
@@ -20,18 +22,25 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<AppBar />}>
-        <Route path="register" element={<Register />} />
-        <Route path="login" element={<Login />} />
-        <Route path="contacts" element={<Contacts />} />
         <Route
-          index element={
-            <Typography component="h1" variant="h3" color={'secondary'} sx={{ padding: '2rem' }}>
-              Phonebook
-            </Typography>
+          path="/register"
+          element={
+            <RestrictedRoute component={<Register />} redirectTo="/contacts" />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute component={<Login />} redirectTo="/contacts" />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute component={<Contacts />} redirectTo="/login" />
           }
         />
       </Route>
-      <Route path="*" element={<Login />} />
     </Routes>
   );
 }
